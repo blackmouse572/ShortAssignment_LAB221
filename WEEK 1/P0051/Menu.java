@@ -1,5 +1,9 @@
 package P0051;
 
+/*
+@Author: Hoai Linh
+*/
+
 public class Menu {
     public static int getChoice() {
         System.out.println("\n======== Calculator program ==========");
