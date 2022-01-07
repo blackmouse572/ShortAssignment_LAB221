@@ -1,0 +1,96 @@
+// Name: Pham Ngoc Nhan
+// Class : SE1603
+
+package J1.S.P0008;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+public class CountLetterChar {
+
+    // tokenize the string
+    public static List<String> split(String str, String delimiter) {
+        
+        List<String> result = new ArrayList<>();
+        
+        //The string tokenizer class allows an application to break a string into tokens.
+        StringTokenizer st = new StringTokenizer(str, delimiter);
+        
+        // The hasMoreTokens() method is used to test if there are more 
+        // tokens available from this tokenizer's string.
+        while (st.hasMoreTokens()) {
+            result.add(st.nextToken());
+        }
+        return result;
+    }
+    
+    // remove all non alphabet char
+    public static String removeNonAlphabet(String str) {
+        // use Regex
+        // replace all non-alphabet to ""
+        return str.replaceAll("[^a-zA-Z]", "");
+    }
+    
+    // Count word
+    public static void countWord(String str) {
+        Map<String, Integer> hashMap = new HashMap<>();
+        
+        // use split to remove delimiter(dấu phân cách)
+        List<String> result = split(str, ",;.: 1234567890");
+        for (String s : result) {
+            // Asking whether the HashMap contains the
+            // key or not. Will return null if not.
+            Integer integer = hashMap.get(s);
+ 
+            if (integer == null)
+                // Storing the word as key and its
+                // occurrence as value in the HashMap.
+                hashMap.put(s, 1);
+ 
+            else {
+                // Incrementing the value if the word
+                // is already present in the HashMap.
+                hashMap.put(s, integer + 1);
+            }
+        }
+        System.out.println(hashMap);
+    }
+    
+    // Count char
+    static void countChar(String str) {
+        
+        HashMap<Character, Integer> charCountMap = new HashMap<>();
+
+        // remove all non-alphabet from the given string
+        String word = removeNonAlphabet(str);
+        
+        // Converting given string to char array
+        char[] strArray = word.toCharArray();
+ 
+        // checking each char of strArray
+        for (char c : strArray) {
+            if (charCountMap.containsKey(c)) {
+ 
+                // If char is present in charCountMap,
+                // incrementing it's count by 1
+                charCountMap.put(c, charCountMap.get(c) + 1);
+            }
+            else {
+ 
+                // If char is not present in charCountMap,
+                // putting this char to charCountMap with 1 as it's value
+                charCountMap.put(c, 1);
+            }
+        }
+ 
+        // Printing the charCountMap
+        for (Map.Entry entry : charCountMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        
+    }
+    
+}
