@@ -1,5 +1,9 @@
 package P0051;
 
+/*
+Author: @Hoai Linh
+*/
+
 import static java.lang.Math.pow;
 
 public class BMI {
