@@ -1,5 +1,9 @@
 package P0051;
 
+/*
+Author: @Hoai Linh
+*/
+
 import java.util.Scanner;
 
 public class Validation {
