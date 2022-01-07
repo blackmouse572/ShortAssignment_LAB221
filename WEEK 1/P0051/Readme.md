@@ -1,5 +1,5 @@
 Author: @lilinkw aka (Hoài Linh)
-This is P0050 work done my Hoai Linh
+This is P0050 work done by Hoai Linh
 
 
 Sample of a main class to call this Project:
